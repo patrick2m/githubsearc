@@ -1,17 +1,32 @@
-import React from 'react'
+import { useState } from 'react'
 
-type Props = {
-  repositorio: {
-    id: number,
-    nome: string,
-    descricao: string,
-    estrelas: number
-  }
+import yellowstar from '../assets/star-yellow.svg'
+import blackstar from '../assets/star-black.svg'
+
+type RepoInfos = {
+  id: number,
+  nome: string,
+  descricao: string,
+  estrelas: number
 }
 
-const StarButton = (props: Props) => {
+const StarButton = (repositorio: RepoInfos) => {
+  const [ existe, setExiste ] = useState(false);
+
+  function alterarFavorito(repositorio: RepoInfos){
+    console.log(repositorio)
+  }
+
   return (
-    <div>StarButton</div>
+    <button
+      onClick={() => alterarFavorito(repositorio)}
+    >
+      {existe ? (
+        <img src={yellowstar} alt="Favoritado" />
+      ):(
+        <img src={blackstar} alt="Favoritado" />
+      )}
+    </button>
   )
 }
 

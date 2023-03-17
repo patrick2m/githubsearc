@@ -7,8 +7,28 @@ const Header = () => {
         <span><strong>Github</strong>Search</span>
       </Link>
       <div>
-        <NavLink to="/" id='inicio'>INICIO</NavLink>
-        <NavLink to="/Favoritos" id='favoritos'>FAVORITOS</NavLink>
+        <NavLink 
+          to="/" 
+          style={({ isActive }) => {
+            return {
+              fontWeight: "bold",
+              color: isActive ? "red" : "black"
+            }
+          }}
+        >
+          INICIO
+        </NavLink>
+        <NavLink 
+          to="/Favoritos"
+          style={({ isActive }) => {
+            return {
+              fontWeight: "bold",
+              color: isActive ? "red" : "black"
+            }
+          }}
+        >
+          FAVORITOS
+        </NavLink>
       </div>
     </div>
   )
