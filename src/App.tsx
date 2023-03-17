@@ -1,26 +1,11 @@
 import './App.css'
-import { api } from './lib/axios'
-
-type UserInfo = {
-  id: number,
-  name: string,
-}
+import Usuario from './pages/Usuario'
 
 function App() {
 
-  async function resgataUser(){
-    await api.get('/users/patrick2m').then((response) => {
-      console.log(response)
-    })
-    return
-  }
-
-  const usuarioInfo = resgataUser()
-  
-  
-  
   return (
     <div className="App">
+      <Usuario />
     </div>
   )
 }
