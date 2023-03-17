@@ -16,8 +16,7 @@ type UserReposInfo = {
   id: number,
   name: string,
   description: string,
-  stargazers_count: number,
-  created_at: string
+  stargazers_count: number
 }
 
 const Usuario = () => {
