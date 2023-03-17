@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { api } from '../lib/axios'
 
 type UserInfo = {
@@ -11,22 +12,28 @@ type UserInfo = {
   avatar_url: string,
   followers: number
 }
+type UserReposInfo = {
+  id: number,
+  name: string,
+  description: string,
+  stargazers_count: number,
+  created_at: string
+}
 
 const Usuario = () => {
-  const nome = 'patrick2m'
-
+  const params = useParams().nome;
   const [Usuario, setUsuario] = useState<UserInfo>()
-  const [UsuarioRepos, setUsuarioRepos] = useState()
+  const [UsuarioRepos, setUsuarioRepos] = useState<UserReposInfo[]>()
 
   useEffect(() => {
-    api.get(`/users/${nome}`).then(res => {
+    api.get(`/users/${params}`).then(res => {
       setUsuario(res.data)
     });
-    api.get(`/users/${nome}/repos?direction=desc`).then(res => {
+    api.get(`/users/${params}/repos?direction=desc`).then(res => {
       setUsuarioRepos(res.data)
     });
-  }, [nome])
-  
+  }, [params])
+
   return (
     <div>
       <div>
@@ -44,8 +51,23 @@ const Usuario = () => {
           <p>Carregando...</p>
         )}
       </div>
+      <div>
+      {UsuarioRepos && UsuarioRepos.map((repositorio:UserReposInfo) => {
+          return (
+            <div key={repositorio.id} className="UsuarioRepositorio">
+              <div className='UsuarioHeader'>
+                <h1>{repositorio.name}</h1>
+                <p>Estrela</p>
+              </div>
+              <p>{repositorio.description}</p>
+              <p>{repositorio.stargazers_count}</p>
+              <p>{repositorio.created_at}</p>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
 
-export default Usuario
+export default Usuario;
