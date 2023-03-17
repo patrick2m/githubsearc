@@ -1,10 +1,8 @@
 import React from 'react'
 
-type Props = {}
-
-const NaoEncontrado = (props: Props) => {
+const NaoEncontrado = () => {
   return (
-    <div>NaoEncontrado</div>
+    <div>Página não encontrada a ser criada</div>
   )
 }
 

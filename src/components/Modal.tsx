@@ -1,10 +1,12 @@
-import React from 'react'
+import alert from '../assets/atencao.svg'
 
-type Props = {}
-
-const Modal = (props: Props) => {
+const Modal = () => {
   return (
-    <div>Modal</div>
+    <div>
+      <img src={alert} alt="Atenção" />
+      <h1>Alerta</h1>
+      <h3>Não foi encontrado nenhuma resposta para esta busca</h3>
+    </div>
   )
 }
 

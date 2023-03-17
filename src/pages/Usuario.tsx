@@ -2,15 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { api } from '../lib/axios'
 
-type UserInfo = {
+type UserInfoPage = {
   id: number,
   name: string,
   login: string,
-  company: string,
-  location: string,
-  public_repos: string,
   avatar_url: string,
-  followers: number
 }
 type UserReposInfo = {
   id: number,
@@ -21,7 +17,7 @@ type UserReposInfo = {
 
 const Usuario = () => {
   const params = useParams().nome;
-  const [Usuario, setUsuario] = useState<UserInfo>()
+  const [Usuario, setUsuario] = useState<UserInfoPage>()
   const [UsuarioRepos, setUsuarioRepos] = useState<UserReposInfo[]>()
 
   useEffect(() => {

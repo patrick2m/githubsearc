@@ -1,10 +1,16 @@
-import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
 
-type Props = {}
-
-const Header = (props: Props) => {
+const Header = () => {
   return (
-    <div>Header</div>
+    <div>
+      <Link to="/">
+        <span><strong>Github</strong>Search</span>
+      </Link>
+      <div>
+        <NavLink to="/" id='inicio'>INICIO</NavLink>
+        <NavLink to="/Favoritos" id='favoritos'>FAVORITOS</NavLink>
+      </div>
+    </div>
   )
 }
 
