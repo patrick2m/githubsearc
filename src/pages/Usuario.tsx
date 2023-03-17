@@ -52,16 +52,15 @@ const Usuario = () => {
         )}
       </div>
       <div>
-      {UsuarioRepos && UsuarioRepos.map((repositorio:UserReposInfo) => {
+      {UsuarioRepos && UsuarioRepos.map((repo:UserReposInfo) => {
           return (
-            <div key={repositorio.id} className="UsuarioRepositorio">
+            <div key={repo.id} className="UsuarioRepositorio">
               <div className='UsuarioHeader'>
-                <h1>{repositorio.name}</h1>
+                <h1>{repo.name}</h1>
                 <p>Estrela</p>
               </div>
-              <p>{repositorio.description}</p>
-              <p>{repositorio.stargazers_count}</p>
-              <p>{repositorio.created_at}</p>
+              <p>{repo.description}</p>
+              <p>{repo.stargazers_count}</p>
             </div>
           )
         })}
