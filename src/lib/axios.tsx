@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const access_token = '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'
+const access_token = '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';
 
 export const api = axios.create(
   {
-    baseURL: 'http://localhost:5173',
+    baseURL: 'https://api.github.com',
     headers: {
-      'Authorization': `token ${access_token}`,
+      'Authorization': `${access_token}`,
     }
   }
 )
